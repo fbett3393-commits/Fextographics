@@ -1,140 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fexto Graphics</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0b1736, #0f2c5c);
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #001f3f, #003366);
+      color: white;
       text-align: center;
-      overflow-x: hidden;
-      animation: fadeIn 1.5s ease-in;
+      margin: 0;
+      padding: 0;
     }
 
     header {
-      padding: 20px;
-      animation: slideDown 1.5s ease-out;
+      padding: 40px 20px 20px;
     }
 
     header img {
-      width: 150px;
-      border-radius: 10px;
-      animation: fadeInLogo 2s ease-in-out;
+      width: 120px;
+      animation: fadeIn 2s ease-in-out;
     }
 
     h1 {
-      font-size: 2em;
-      margin-top: 10px;
+      font-size: 2.5em;
+      margin: 10px 0 5px;
+      animation: slideDown 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #dcdcdc;
     }
 
     section {
       margin: 30px auto;
       width: 90%;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
+      max-width: 500px;
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      animation: fadeUp 1.8s ease-in;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      animation: fadeInUp 1.5s ease;
     }
 
     h2 {
-      color: #fff;
-      font-size: 1.5em;
+      margin-bottom: 10px;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      font-size: 1.1em;
-      line-height: 1.8;
+    /* Portfolio section */
+    .portfolio {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(145deg, #0b1a3a, #132a5c);
+      color: white;
+      width: 100%;
+      max-width: none;
+      box-shadow: none;
     }
 
-    .whatsapp-btn {
+    .portfolio h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #d1d1d1;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      width: 90%;
+      margin: auto;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp {
       display: inline-block;
-      background: #25d366;
-      color: #fff;
+      background-color: #25D366;
+      color: white;
       text-decoration: none;
       padding: 12px 25px;
       border-radius: 8px;
-      font-weight: 600;
+      font-weight: bold;
       margin-top: 10px;
-      transition: 0.3s;
-      animation: pulse 2s infinite;
+      transition: transform 0.2s;
     }
 
-    .whatsapp-btn:hover {
-      background: #1ebc57;
+    .whatsapp:hover {
+      transform: scale(1.1);
     }
 
     footer {
-      margin-top: 30px;
-      padding: 15px;
+      margin: 40px 0 10px;
       font-size: 0.9em;
       opacity: 0.8;
-      background: rgba(0, 0, 0, 0.3);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
+      from { transform: translateY(-20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    @keyframes fadeInLogo {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto Graphics Logo">
-    <h1>Welcome to Fexto Graphics</h1>
-    <p>Creative digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
+    <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto Logo">
+    <h1>Fexto Graphics</h1>
+    <p>Creative posters that speak for you</p>
   </header>
 
   <section>
-    <h2>🎨 Our Services</h2>
-    <ul>
-      <li>🎤 Music Posters</li>
-      <li>🏛️ Political Posters</li>
-      <li>🎉 Event & Party Posters</li>
-      <li>💼 Business Adverts</li>
-      <li>📱 Social Media Designs</li>
-    </ul>
+    <h2>About Us</h2>
+    <p>We create high-quality posters and digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
   </section>
 
   <section>
-    <h2>📞 Contact Us</h2>
-    <p>Reach us on WhatsApp for your next design project.</p>
-    <a class="whatsapp-btn" href="https://wa.me/254734208783" target="_blank">💬 WhatsApp Us</a>
+    <h2>Our Services</h2>
+    <p>🎵 Music Posters<br>🏛 Political Posters<br>🎉 Event & Party Posters<br>💼 Business Adverts<br>📱 Social Media Designs</p>
   </section>
 
-  <footer>
-    © 2025 Fexto Graphics | All Rights Reserved
-  </footer>
+  <section class="portfolio">
+    <h2>🎨 Our Portfolio</h2>
+    <p>Explore some of our latest creative design projects — professional, vibrant, and made to impress.</p>
+    <div class="portfolio-grid">
+      <img src="https://via.placeholder.com/300x200?text=Poster+1" alt="Design 1">
+      <img src="https://via.placeholder.com/300x200?text=Poster+2" alt="Design 2">
+      <img src="https://via.placeholder.com/300x200?text=Poster+3" alt="Design 3">
+      <img src="https://via.placeholder.com/300x200?text=Poster+4" alt="Design 4">
+      <img src="https://via.placeholder.com/300x200?text=Poster+5" alt="Design 5">
+      <img src="https://via.placeholder.com/300x200?text=Poster+6" alt="Design 6">
+    </div>
+  </section>
 
+  <section>
+    <h2>Contact Us</h2>
+    <p>Reach us on WhatsApp for your next design project.</p>
+    <a class="whatsapp" href="https://wa.me/254734208783" target="_blank">💬 WhatsApp Us</a>
+  </section>
+
+  <footer>© 2025 Fexto Graphics. All Rights Reserved.</footer>
 </body>
-</html>
+      </html>
