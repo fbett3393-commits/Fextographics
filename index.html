@@ -11,6 +11,7 @@
       padding: 0;
       background: #f5f8ff;
       color: #222;
+      overflow-x: hidden;
     }
 
     header {
@@ -40,20 +41,33 @@
       color: #25D366;
     }
 
+    /* ===== Hero Section ===== */
     .hero {
       background: linear-gradient(135deg, #2575fc, #6a11cb);
       color: white;
       text-align: center;
       padding: 100px 20px;
+      animation: fadeInUp 1.6s ease-out;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeInUp 1.6s ease forwards;
+      animation-delay: 0.3s;
     }
 
     .hero p {
       font-size: 1.2rem;
+      opacity: 0;
+      animation: fadeInUp 1.8s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     section {
@@ -132,7 +146,6 @@
       transform: scale(1.1);
     }
 
-    /* ===== Bounce Animation ===== */
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
@@ -215,4 +228,4 @@
     <a href="mailto:fextographics@gmail.com" class="float-btn float-email">✉️</a>
   </div>
 </body>
-      </html>
+  </html>
