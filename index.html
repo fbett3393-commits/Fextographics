@@ -1,121 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fexto Graphics</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #00193d, #1b3f8b);
-      color: white;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #0b1736, #0f2c5c);
+      color: #fff;
       text-align: center;
+      overflow-x: hidden;
+      animation: fadeIn 1.5s ease-in;
     }
 
     header {
-      padding: 40px 20px;
+      padding: 20px;
+      animation: slideDown 1.5s ease-out;
+    }
+
+    header img {
+      width: 150px;
+      border-radius: 10px;
+      animation: fadeInLogo 2s ease-in-out;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
+      font-size: 2em;
+      margin-top: 10px;
     }
 
     section {
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.05);
-      margin: 20px;
-      border-radius: 10px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      animation: fadeUp 1.8s ease-in;
     }
 
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    h2 {
+      color: #fff;
+      font-size: 1.5em;
     }
 
-    .services div {
-      margin: 10px 0;
+    ul {
+      list-style: none;
+      padding: 0;
       font-size: 1.1em;
+      line-height: 1.8;
     }
 
-    .button {
+    .whatsapp-btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: orange;
-      color: white;
+      background: #25d366;
+      color: #fff;
       text-decoration: none;
+      padding: 12px 25px;
       border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: 0.3s;
+      animation: pulse 2s infinite;
     }
 
-    .button:hover {
-      background: #ffb347;
+    .whatsapp-btn:hover {
+      background: #1ebc57;
     }
 
     footer {
       margin-top: 30px;
-      padding: 10px;
+      padding: 15px;
       font-size: 0.9em;
-      background: #031029;
+      opacity: 0.8;
+      background: rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeInLogo {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Fexto Graphics</h1>
-    <p>Creative posters that speak for you</p>
+    <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto Graphics Logo">
+    <h1>Welcome to Fexto Graphics</h1>
+    <p>Creative digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
   </header>
 
-  <section class="about">
-    <h2>About Us</h2>
-    <p>We create high-quality posters and digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
+  <section>
+    <h2>🎨 Our Services</h2>
+    <ul>
+      <li>🎤 Music Posters</li>
+      <li>🏛️ Political Posters</li>
+      <li>🎉 Event & Party Posters</li>
+      <li>💼 Business Adverts</li>
+      <li>📱 Social Media Designs</li>
+    </ul>
   </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <div>🎤 Music Posters</div>
-    <div>🏛️ Political Posters</div>
-    <div>🎉 Event & Party Posters</div>
-    <div>💼 Business Adverts</div>
-    <div>📱 Social Media Designs</div>
-  </section>
-
-  <section class="contact">
-    <h2>Contact Us</h2>
+  <section>
+    <h2>📞 Contact Us</h2>
     <p>Reach us on WhatsApp for your next design project.</p>
-    <a href="https://wa.me/254734208783" class="button" target="_blank">WhatsApp Us</a>
+    <a class="whatsapp-btn" href="https://wa.me/254734208783" target="_blank">💬 WhatsApp Us</a>
   </section>
 
   <footer>
-    © 2025 Fexto Graphics. All Rights Reserved.
+    © 2025 Fexto Graphics | All Rights Reserved
   </footer>
 
-  <script>
-    // Fade-in + slide-up on scroll
-    const sections = document.querySelectorAll("section");
-    const showOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        if (rect.top < triggerBottom) {
-          sec.classList.add("visible");
-        }
-      });
-    };
-    window.addEventListener("scroll", showOnScroll);
-    showOnScroll();
-  </script>
 </body>
 </html>
