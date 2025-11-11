@@ -5,130 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fexto Graphics</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
       scroll-behavior: smooth;
-      background: #f7f9fc;
-      color: #333;
     }
 
-    /* Navigation bar */
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f5f6fa;
+      color: #222;
+      line-height: 1.6;
+    }
+
     header {
-      background: #0b3d91;
+      background: #003366;
       color: white;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 10px 20px;
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      animation: fadeIn 1.5s ease;
     }
 
     header img {
-      width: 120px;
+      width: 100px;
       height: auto;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-      transition: color 0.3s;
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
     }
 
-    nav a:hover {
-      color: #ff9500;
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00ff99;
     }
 
     section {
-      padding: 100px 20px 60px;
+      padding: 60px 20px;
       text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1.5s ease forwards;
     }
 
-    /* Hero section */
-    #home {
-      background: linear-gradient(135deg, #0b3d91, #2575fc);
-      color: white;
-      padding-top: 120px;
-      padding-bottom: 80px;
+    section:nth-of-type(1) {
+      animation-delay: 0.3s;
+    }
+    section:nth-of-type(2) {
+      animation-delay: 0.6s;
+    }
+    section:nth-of-type(3) {
+      animation-delay: 0.9s;
+    }
+    section:nth-of-type(4) {
+      animation-delay: 1.2s;
     }
 
-    #home h1 {
+    h1 {
       font-size: 2.5em;
+      color: #003366;
+      margin-bottom: 15px;
     }
 
-    #home p {
-      font-size: 1.2em;
-      color: #f0f0f0;
+    h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #003366;
     }
 
-    /* Portfolio section */
-    #portfolio {
-      background: white;
-    }
-
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card h3 {
+    p {
+      font-size: 1.1em;
       margin: 10px 0;
-      color: #0b3d91;
     }
 
-    /* WhatsApp Button */
-    .whatsapp {
+    .hero {
+      background: linear-gradient(135deg, #004080, #0073e6);
+      color: white;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      color: white;
+    }
+
+    .services, .portfolio, .contact {
+      background: white;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      max-width: 800px;
+      padding: 40px 20px;
+    }
+
+    .services ul, .portfolio ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .services ul li, .portfolio ul li {
+      margin: 10px 0;
+    }
+
+    .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
       color: white;
       border-radius: 50%;
       width: 60px;
       height: 60px;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       font-size: 28px;
       text-decoration: none;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s;
-      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      animation: fadeIn 2s ease;
     }
 
-    .whatsapp:hover {
+    .whatsapp-float:hover {
       transform: scale(1.1);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     footer {
-      background: #0b3d91;
+      background: #003366;
       color: white;
       padding: 15px;
       text-align: center;
@@ -136,20 +172,22 @@
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <img src="file_00000000188722f8677b884794de89e.png" alt="Fexto Logo" />
+    <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto Logo">
     <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="home">
+  <section id="home" class="hero">
     <h1>Welcome to Fexto Graphics</h1>
     <p>Creative posters that speak for you.</p>
   </section>
@@ -159,33 +197,37 @@
     <p>We specialize in creating high-quality posters and designs that speak for you and your brand.</p>
   </section>
 
-  <section id="services">
+  <section id="services" class="services">
     <h2>Our Services</h2>
-    <p>We offer professional designs for music, events, politics, business, and more.</p>
+    <ul>
+      <li>🎵 Music Posters</li>
+      <li>🏛 Political Posters</li>
+      <li>🎉 Event & Party Posters</li>
+      <li>💼 Business Adverts</li>
+      <li>📱 Social Media Designs</li>
+    </ul>
   </section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 1"><h3>Design 1</h3></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 2"><h3>Design 2</h3></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 3"><h3>Design 3</h3></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 4"><h3>Design 4</h3></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 5"><h3>Design 5</h3></div>
-      <div class="card"><img src="https://via.placeholder.com/300x200" alt="Design 6"><h3>Design 6</h3></div>
-    </div>
+  <section id="portfolio" class="portfolio">
+    <h2>Our Portfolio</h2>
+    <p>Explore some of our creative design projects — professional, vibrant, and made to impress.</p>
+    <ul>
+      <li>Design 1</li>
+      <li>Design 2</li>
+      <li>Design 3</li>
+      <li>Design 4</li>
+    </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Reach us on WhatsApp for your next creative project!</p>
+    <p>Reach us on WhatsApp for your next design project.</p>
+    <a href="https://wa.me/254734208783" class="whatsapp-float" target="_blank">💬</a>
   </section>
 
   <footer>
-    © 2025 Fexto Graphics — All rights reserved.
+    © 2025 Fexto Graphics — All Rights Reserved
   </footer>
 
-  <!-- WhatsApp floating button -->
-  <a href="https://wa.me/254734208783" target="_blank" class="whatsapp">💬</a>
 </body>
-    </html>
+  </html>
