@@ -7,48 +7,86 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      text-align: center;
       margin: 0;
       padding: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background: linear-gradient(135deg, #04193d, #1b3f8b);
+      color: white;
+      text-align: center;
     }
-
+    header {
+      padding: 40px 20px;
+    }
     h1 {
       font-size: 2.5em;
-      margin-bottom: 0.5em;
+      margin-bottom: 10px;
     }
-
     p {
       font-size: 1.2em;
-      color: #f0f0f0;
     }
-
+    section {
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.05);
+      margin: 20px;
+      border-radius: 10px;
+    }
+    .services div {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: orange;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
     footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
+      margin-top: 30px;
+      padding: 10px;
       font-size: 0.9em;
-      opacity: 0.7;
+      background: #031029;
     }
-
     img {
-      width: 200px;
-      margin-bottom: 20px;
+      width: 180px;
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
-  <img src="file_00000000188722f8677b884794de89e.png" alt="Fexto Logo" width="200">
-  <h1>Welcome to Fexto Graphics</h1>
-  <p>Creative posters that speak for you.</p>
-  <footer>© 2025 Fexto Graphics</footer>
+
+  <header>
+    <!-- Logo will appear here later -->
+    <!-- <img src="fexto-logo.png" alt="Fexto Logo"> -->
+    <h1>Fexto Graphics</h1>
+    <p>Creative posters that speak for you</p>
+  </header>
+
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We create high-quality posters and digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
+  </section>
+
+  <section class="services">
+    <h2>Our Services</h2>
+    <div>🎤 Music Posters</div>
+    <div>🏛️ Political Posters</div>
+    <div>🎉 Event & Party Posters</div>
+    <div>💼 Business Adverts</div>
+    <div>📱 Social Media Designs</div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <p>Reach us on WhatsApp for your next design project.</p>
+    <a href="https://wa.me/254734208783" class="button">WhatsApp Us</a>
+  </section>
+
+  <footer>
+    © 2025 Fexto Graphics. All Rights Reserved.
+  </footer>
+
 </body>
 </html>
