@@ -1,304 +1,437 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fexto Graphics</title>
+
   <style>
+    /* ---------- Root & Reset ---------- */
     :root{
-      --bg1: #0b2b4a;
-      --bg2: #143b6a;
-      --accent: #ffb400;
-      --card: #0e2d55;
-      --muted: #d6dbe6;
-      --white: #ffffff;
+      --bg:#071637;
+      --panel:#0f2a59;
+      --card:#0b2a59;
+      --light:#f6f7fb;
+      --accent:#f6a11b;
+      --muted:#8b98b0;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --shadow: 0 10px 25px rgba(3,11,32,0.5);
+      --soft-shadow: 0 6px 20px rgba(3,11,32,0.35);
     }
-    html,body{height:100%;margin:0;font-family:Inter,Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
     body{
-      background: linear-gradient(135deg,var(--bg2), #1d4ea8 80%);
-      color:var(--white);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg, #06112a 0%, #04234a 65%);
+      color:var(--light);
       -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
     }
 
-    /* Top nav */
-    .nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      display:flex;align-items:center;gap:18px;
-      padding:12px 18px;background:rgba(2,36,63,0.95);
-      z-index:1200;box-shadow:0 4px 14px rgba(0,0,0,0.25)
+    /* ---------- Container ---------- */
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:20px;
     }
-    .logo{
-      width:72px;height:72px;display:inline-block;border-radius:6px;
-      overflow:hidden;background:#fff;padding:6px;
-    }
-    .logo img{width:100%;height:100%;object-fit:contain;display:block}
-    .nav-links{display:flex;gap:18px;margin-left:auto;align-items:center}
-    .nav-links a{color:var(--white);text-decoration:none;font-weight:700}
-    .nav-links a:hover{opacity:.85}
 
-    /* Header hero */
-    header.hero{
-      padding:120px 20px 40px; text-align:center;
-      min-height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:14px;
+    /* ---------- Header ---------- */
+    header.site-header{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding:14px 20px;
+      background: linear-gradient(90deg, rgba(3,22,58,0.95), rgba(3,29,70,0.98));
+      border-radius:8px;
+      position:sticky;
+      top:12px;
+      z-index:50;
+      box-shadow:var(--soft-shadow);
     }
-    header.hero .hero-logo{
-      width:140px;height:140px;border-radius:16px;overflow:hidden;
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      display:flex;align-items:center;justify-content:center;
-      animation:pop .6s ease;
+    .logo {
+      width:74px;
+      height:74px;
+      border-radius:8px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(255,255,255,0.02);
+      flex: 0 0 74px;
     }
-    header h1{font-size:44px;margin:10px 0 0;line-height:1.05}
-    header p.lead{font-size:18px;color:rgba(255,255,255,0.9);margin:6px 0 0}
+    .logo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-    @keyframes pop{from{transform:translateY(-8px) scale(.98);opacity:0}to{transform:none;opacity:1}}
-
-    /* Main card sections */
-    .container{max-width:980px;margin:28px auto;padding:0 18px}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      padding:28px;border-radius:16px;margin-bottom:22px;box-shadow:0 10px 30px rgba(0,0,0,0.35);
-      color:var(--white);
+    nav.nav {
+      display:flex;
+      gap:18px;
+      margin-left:6px;
+      flex-wrap:wrap;
     }
-    .card h2{font-size:28px;margin:0 0 12px;text-align:center}
-    .card p{color:rgba(255,255,255,0.9);text-align:center;margin:0 0 6px}
-
-    /* Services grid */
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
-    .service{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:16px;border-radius:12px;text-align:center;box-shadow:inset 0 -4px 12px rgba(0,0,0,0.15);
+    nav.nav a{
+      color:var(--light);
+      text-decoration:none;
+      font-weight:700;
+      padding:6px 8px;
     }
-    .service h3{margin:6px 0;font-size:20px}
-    .service p{margin:0;color:rgba(255,255,255,0.85)}
 
-    /* Portfolio */
-    .portfolio{
-      background:#f6f8fb;border-radius:18px;padding:32px;color:#102b4a;margin-top:8px;
+    /* ---------- Hero ---------- */
+    .hero{
+      margin-top:26px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:48px 24px;
+      border-radius:18px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
       text-align:center;
+      box-shadow:var(--shadow);
     }
-    .portfolio h2{color:#0b2b4a}
-    .portfolio p{color:#44607f}
-    .portfolio-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:22px;
+    .hero .hero-img {
+      width:170px;
+      height:170px;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      background: #081225;
     }
-    .portfolio-item{
-      background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 10px 22px rgba(8,32,64,0.08);
-    }
-    .portfolio-item img{width:100%;height:140px;object-fit:cover;border-radius:8px}
-    .portfolio-item h4{margin:12px 0 6px;color:#04203b}
-    .portfolio-item p{margin:0;color:#47607a}
+    .hero .hero-img img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-    /* Floating contact buttons */
-    .float-actions{
-      position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:14px;z-index:1300;
+    .hero h1{
+      font-size:2.6rem;
+      line-height:1.05;
+      margin-bottom:12px;
+      color:var(--light);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      animation: slideDown 600ms ease both;
+    }
+    .hero p.lead{
+      color:var(--muted);
+      margin-bottom:8px;
+      max-width:760px;
+      font-size:1.05rem;
+      animation: fadeIn 800ms ease both;
+    }
+
+    /* ---------- Panels (About / Services) ---------- */
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      margin-top:22px;
+      padding:28px;
+      box-shadow:var(--soft-shadow);
+    }
+    .panel h2{
+      margin-bottom:14px;
+      font-size:1.5rem;
+      color:var(--light);
+    }
+    .panel p{ color:var(--muted); margin-bottom:8px; }
+
+    /* ---------- Services grid ---------- */
+    .services-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+      margin-top:12px;
+    }
+    .service-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      padding:20px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow: 0 8px 20px rgba(7,20,40,0.45);
+    }
+    .service-card h3{ color:var(--light); margin-bottom:8px }
+    .service-card p{ color:var(--muted) }
+
+    /* ---------- Portfolio ---------- */
+    .portfolio{
+      margin-top:22px;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:28px;
+      border-radius:18px;
+      box-shadow:var(--soft-shadow);
+    }
+    .portfolio-grid{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .card{
+      background:var(--light);
+      color:#0b2a59;
+      padding:18px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow: 0 8px 18px rgba(3,9,34,0.08);
+    }
+    .card .thumb{
+      height:160px;
+      border-radius:10px;
+      overflow:hidden;
+      background: #e9eef6;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .card .thumb img{ width:100%; height:100%; object-fit:cover }
+    .card h4{ margin-bottom:8px }
+    .see-more {
+      display:inline-block;
+      margin-top:18px;
+      background:var(--accent);
+      color:#07112a;
+      padding:12px 22px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(246,161,27,0.25);
+    }
+
+    /* ---------- Contact CTA ---------- */
+    .contact-cta{
+      margin-top:20px;
+      background: linear-gradient(180deg, #07264b 0%, #063157 100%);
+      padding:28px;
+      border-radius:18px;
+      text-align:center;
+      color:var(--light);
+      box-shadow:var(--soft-shadow);
+    }
+    .cta-btn {
+      display:inline-block;
+      margin-top:16px;
+      background: #ffbf00;
+      color:#07112a;
+      padding:12px 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 10px 24px rgba(255,191,0,0.18);
+    }
+
+    /* ---------- Floating social buttons ---------- */
+    .floating {
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      z-index:120;
     }
     .float-btn{
-      width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      box-shadow:0 8px 20px rgba(3,16,40,0.25);cursor:pointer;border:none;
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 8px 26px rgba(3,9,34,0.35);
+      transition: transform .18s ease, box-shadow .18s;
+      cursor:pointer;
+      text-decoration:none;
+      color:white;
+      font-weight:700;
     }
-    .wa{background:#25D366;color:#0b3d2a}
-    .chat{background:#0bd46a;color:#033}
-    .mail{background:#072a53;color:#fff}
-    .float-btn img{width:36px;height:36px}
+    .float-btn:hover{ transform: translateY(-6px); box-shadow:0 18px 36px rgba(3,9,34,0.45); }
+    .fb{ background:#1877f2; }
+    .yt{ background:#ff0000; }
+    .wa{ background:#25D366; color:#06311a; }
 
-    /* Footer */
-    footer{padding:26px 18px;text-align:center;color:#d9e3f6;background:linear-gradient(180deg, rgba(2,16,35,0.12), rgba(2,16,35,0.04));}
-    footer small{display:block;color:#d0d8e9}
-
-    /* Buttons */
-    .btn{
-      display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;
-      background:var(--accent);color:#08303b;box-shadow:0 8px 18px rgba(0,0,0,.12)
-    }
-
-    /* Responsive tweaks */
-    @media(min-width:900px){
-      header.hero{padding-top:140px}
-      .nav-links{gap:26px}
-      .logo{width:86px;height:86px}
-      header h1{font-size:56px}
-    }
-    @media(max-width:520px){
-      header h1{font-size:34px;padding:0 8px}
-      .nav-links{display:none}
-      .logo{width:64px;height:64px}
+    /* ---------- Small screens ---------- */
+    @media (max-width:600px){
+      .hero h1{ font-size:2rem }
+      header.site-header{ padding:10px; gap:12px }
+      nav.nav { gap:10px }
+      .logo{ width:56px; height:56px }
     }
 
-    /* smooth fade-in for cards */
-    .fade-up{opacity:0;transform:translateY(12px);animation:fadeUp .7s ease forwards}
-    .fade-up.delay{animation-delay:.15s}
-    @keyframes fadeUp{to{opacity:1;transform:none}}
+    /* ---------- Animations ---------- */
+    @keyframes slideDown { from{ transform: translateY(-8px); opacity:0 } to{ transform:none; opacity:1 } }
+    @keyframes fadeIn { from{ opacity:0 } to{ opacity:1 } }
   </style>
 </head>
 <body>
 
-  <!-- Top navigation -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="logo" title="Fexto Logo">
-      <!-- Replace the filename below with your uploaded image name if different -->
-      <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto Logo" />
-    </div>
+  <div class="wrap">
 
-    <div class="nav-links" role="menu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    <!-- Header -->
+    <header class="site-header" role="banner">
+      <div class="logo" aria-hidden="true">
+        <!-- Replace logo.png with your uploaded file -->
+        <img src="logo.png" alt="Fexto Logo" onerror="this.style.display='block'; this.src='';" />
+      </div>
 
-  <!-- Hero / Header -->
-  <header id="home" class="hero" role="banner">
-    <div class="hero-logo fade-up">
-      <img src="file_000000000188722f8677b884794de89e.png" alt="Fexto logo" style="width:100%;height:100%;object-fit:cover" />
-    </div>
-    <h1 class="fade-up delay">Welcome to Fexto Graphics</h1>
-    <p class="lead fade-up delay">Creative posters that speak for you.</p>
-  </header>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <main class="container" role="main">
+    <!-- Hero -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero-img" aria-hidden="true">
+        <!-- Replace hero.png with your uploaded hero image -->
+        <img src="hero.png" alt="Fexto Graphics" />
+      </div>
+
+      <h1 id="hero-title">Welcome to Fexto Graphics</h1>
+      <p class="lead">Creative posters and digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
+    </section>
 
     <!-- About -->
-    <section id="about" class="card fade-up">
-      <h2>About Us</h2>
-      <p>We specialize in creating high-quality posters and digital designs that make your brand stand out — professional, unique, and eye-catching.</p>
+    <section id="about" class="panel" aria-labelledby="about-title">
+      <h2 id="about-title">About Us</h2>
+      <p>We create high-quality posters and digital visuals tailored to campaigns, events and social media. Professional, vibrant, and made to impress.</p>
     </section>
 
     <!-- Services -->
-    <section id="services" class="card fade-up delay">
-      <h2>Our Services</h2>
+    <section id="services" class="panel" aria-labelledby="services-title">
+      <h2 id="services-title">Our Services</h2>
+
       <div class="services-grid">
-        <div class="service">
-          <h3>🎵 Music Posters</h3>
-          <p>Bold, energetic posters for concerts, DJs and festivals.</p>
+        <div class="service-card">
+          <h3>Music Posters</h3>
+          <p>Bold, readable, and energetic designs for flyers and gig promotion.</p>
         </div>
-        <div class="service">
-          <h3>🏛️ Political Posters</h3>
-          <p>Clear, impactful designs for campaigns and messaging.</p>
+
+        <div class="service-card">
+          <h3>Political Posters</h3>
+          <p>Clear messaging and strong visuals to support your campaign.</p>
         </div>
-        <div class="service">
-          <h3>🎉 Event & Party Posters</h3>
-          <p>Vibrant posters that create buzz and drive attendance.</p>
+
+        <div class="service-card">
+          <h3>Event & Party Posters</h3>
+          <p>Eye-catching designs that drive attendance and excitement.</p>
         </div>
-        <div class="service">
-          <h3>💼 Business Adverts</h3>
-          <p>Professional adverts and promotional graphics for businesses.</p>
+
+        <div class="service-card">
+          <h3>Business Adverts</h3>
+          <p>Flyers, banners and POS designs that convert customers.</p>
         </div>
-        <div class="service">
-          <h3>📱 Social Media Designs</h3>
-          <p>Optimized visuals for Instagram, Facebook, and TikTok.</p>
+
+        <div class="service-card">
+          <h3>Social Media Designs</h3>
+          <p>Optimized posts and creatives to grow engagement and followers.</p>
         </div>
-        <div class="service">
-          <h3>✍️ Custom Requests</h3>
-          <p>Have a special idea? We’ll design it exactly how you want.</p>
+
+        <div class="service-card">
+          <h3>Custom Requests</h3>
+          <p>Tell us your idea — we'll bring it to life exactly how you imagine.</p>
         </div>
       </div>
     </section>
 
     <!-- Portfolio -->
-    <section id="portfolio" class="portfolio fade-up">
-      <h2>Our Portfolio</h2>
-      <p>A showcase of our creative projects — coming soon!</p>
+    <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title">Our Portfolio</h2>
+      <p style="color:var(--muted)">A showcase of our creative projects — coming soon. Below are placeholders you can replace with real images.</p>
 
-      <div class="portfolio-grid" aria-live="polite">
-        <!-- Placeholder cards: when you have images, replace src with your image filenames -->
-        <div class="portfolio-item">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e9eef6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23889' font-family='Arial,Helvetica Neue,Helvetica,sans-serif'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Poster Design" />
+      <div class="portfolio-grid">
+        <!-- Replace poster1.png etc with your files -->
+        <div class="card">
+          <div class="thumb"><img src="poster1.png" alt="Poster design 1" onerror="this.style.background='#f0f2f7'; this.nextElementSibling && (this.style.display='none')"></div>
           <h4>Poster Design</h4>
           <p>Creative posters designed to grab attention and communicate clearly.</p>
         </div>
 
-        <div class="portfolio-item">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e9eef6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23889' font-family='Arial,Helvetica Neue,Helvetica,sans-serif'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Logo Design" />
+        <div class="card">
+          <div class="thumb"><img src="poster2.png" alt="Poster design 2"></div>
           <h4>Logo Design</h4>
-          <p>Unique logos that represent your brand identity.</p>
+          <p>Unique, memorable logos that represent your brand identity.</p>
         </div>
 
-        <div class="portfolio-item">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e9eef6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23889' font-family='Arial,Helvetica Neue,Helvetica,sans-serif'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Social Media Design" />
+        <div class="card">
+          <div class="thumb"><img src="poster3.png" alt="Poster design 3"></div>
           <h4>Social Media Graphics</h4>
           <p>Eye-catching visuals that boost your online presence.</p>
         </div>
-
-        <div class="portfolio-item">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='360'%3E%3Crect width='100%25' height='100%25' fill='%23e9eef6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23889' font-family='Arial,Helvetica Neue,Helvetica,sans-serif'%3EPlaceholder Image%3C/text%3E%3C/svg%3E" alt="Branding" />
-          <h4>Business Branding</h4>
-          <p>Logos, flyers and brand kits to give your business a strong identity.</p>
-        </div>
       </div>
 
-      <div style="text-align:center;margin-top:22px">
-        <a class="btn" href="#contact">See More Projects</a>
-      </div>
+      <a class="see-more" href="#portfolio">See More Projects</a>
     </section>
 
-    <!-- Contact section -->
-    <section id="contact" class="card fade-up delay">
-      <h2>Contact Us</h2>
+    <!-- Contact -->
+    <section id="contact" class="contact-cta" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact Us</h2>
       <p>Reach us on WhatsApp for your next design project.</p>
-      <div style="text-align:center;margin-top:16px">
-        <a class="btn" href="https://wa.me/254734208783" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-      </div>
+      <a class="cta-btn" href="https://wa.me/254734208783" target="_blank" rel="noopener">WhatsApp Us</a>
     </section>
 
-  </main>
+    <footer style="text-align:center; color:var(--muted); padding:28px 0; font-size:0.95rem;">
+      © 2025 Fexto Graphics. All rights reserved.
+    </footer>
 
-  <!-- Floating quick actions (WhatsApp only; no email per request) -->
-  <div class="float-actions" aria-hidden="false">
+  </div><!-- /.wrap -->
+
+  <!-- Floating social buttons -->
+  <div class="floating" aria-hidden="false">
     <!-- WhatsApp -->
-    <a href="https://wa.me/254734208783" target="_blank" class="float-btn wa" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
-      <!-- simple inline svg icon for WhatsApp -->
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M20.52 3.48A11.9 11.9 0 0012.04 1C6.2 1 1.58 5.22 1.58 10.3c0 1.82.5 3.5 1.44 4.98L2 23l7.01-1.85c1.38.38 2.84.58 4.33.58 5.84 0 10.46-4.22 10.46-9.3 0-2.52-.8-4.86-2.28-6.41z" fill="#fff" opacity=".12"/><path d="M17.13 14.6c-.28-.14-1.66-.82-1.92-.91-.26-.09-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.44-.87-.77-1.45-1.72-1.61-2.01-.16-.28-.02-.43.12-.57.12-.12.28-.33.42-.5.14-.17.19-.28.29-.46.1-.19.05-.35-.03-.49-.09-.14-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.77.35-.27.28-1.03 1.01-1.03 2.47 0 1.46 1.06 2.88 1.21 3.08.15.2 2.08 3.25 5.04 4.55 2.96 1.3 2.96.87 3.49.81.53-.06 1.7-.69 1.94-1.36.24-.67.24-1.25.17-1.36-.07-.12-.26-.19-.54-.33z" fill="#fff"/></svg>
+    <a class="float-btn wa" href="https://wa.me/254734208783" target="_blank" rel="noopener" title="WhatsApp">
+      <!-- WhatsApp SVG -->
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20.52 3.48A11.87 11.87 0 0012 .5 11.87 11.87 0 003.48 3.48 11.97 11.97 0 000 12a11.6 11.6 0 00.92 4.36L0.04 23.5l7.5-2A11.95 11.95 0 0012 24c6.63 0 12-5.37 12-12 0-1.92-.44-3.72-1.48-5.36z" fill="#fff" opacity=".08"/>
+        <path d="M17.53 14.03c-.28-.14-1.66-.82-1.92-.91-.26-.08-.45-.14-.64.14-.18.28-.71.91-.87 1.1-.16.19-.33.22-.61.08-0.28-.14-1.18-.43-2.25-1.39-.83-.74-1.39-1.65-1.55-1.92-.16-.27-.02-.42.12-.56.12-.11.28-.3.42-.45.14-.16.19-.27.28-.45.09-.18.05-.34-.03-.48-.08-.14-.64-1.54-.88-2.12-.23-.56-.46-.48-.64-.49-.17-.01-.37-.01-.57-.01-.19 0-.5.07-.76.34-.26.27-1 1-1 2.44 0 1.44 1.02 2.84 1.16 3.04.14.19 1.98 3.03 4.8 4.24 3.35 1.48 3.35 0.98 3.95 0.92.6-.06 1.95-.8 2.22-1.57.27-.77.27-1.43.19-1.57-.08-.14-.28-.22-.57-.36z" fill="#fff"/>
+      </svg>
     </a>
-    <!-- Chat bubble (non-functional placeholder) -->
-    <button class="float-btn chat" title="Open chat" aria-hidden="true">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M20 2H4a2 2 0 00-2 2v14l4-2h14a2 2 0 002-2V4a2 2 0 00-2-2z" fill="#fff" opacity=".14"/><path d="M7 8h10v2H7zM7 12h7v2H7z" fill="#fff"/></svg>
-    </button>
+
+    <!-- YouTube -->
+    <a class="float-btn yt" href="https://youtube.com/@fexto-l5q?si=DxvvaAIusVjbfNdE" target="_blank" rel="noopener" title="YouTube">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M23.5 6.2a3.01 3.01 0 00-2.12-2.12C19.57 3.5 12 3.5 12 3.5s-7.57 0-9.38.58A3.01 3.01 0 00.5 6.2 31.1 31.1 0 000 12a31.1 31.1 0 00.5 5.8 3.01 3.01 0 002.12 2.12C4.43 20.5 12 20.5 12 20.5s7.57 0 9.38-.58a3.01 3.01 0 002.12-2.12A31.1 31.1 0 0024 12a31.1 31.1 0 00-.5-5.8z" fill="#fff" opacity=".12"/>
+        <path d="M9.75 15.02l5.5-3.02-5.5-3.02v6.04z" fill="#fff"/>
+      </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a class="float-btn fb" href="https://www.fb.com/l/6lp1kJRRR" target="_blank" rel="noopener" title="Facebook">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.2-3.4.9 0 1.8.16 1.8.16v2h-1c-1 0-1.3.62-1.3 1.2V12h2.3l-.37 2.9h-1.93v7A10 10 0 0022 12z" fill="#fff"/>
+      </svg>
+    </a>
   </div>
 
-  <footer>
-    <div>© 2025 Fexto Graphics. All rights reserved.</div>
-    <small>Designed with ♥ by Fexto.</small>
-  </footer>
-
+  <!-- Small helper script for smooth scrolling and simple animations -->
   <script>
-    // Smooth scroll for nav links
-    document.querySelectorAll('.nav-links a').forEach(a=>{
-      a.addEventListener('click', e=>{
-        e.preventDefault();
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
       });
     });
 
-    // Simple fade-up animations when elements are in viewport
-    const observer = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
+    // Basic fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
         if(entry.isIntersecting){
-          entry.target.classList.add('visible');
           entry.target.style.opacity = 1;
+          entry.target.style.transform = 'none';
+          observer.unobserve(entry.target);
         }
       });
     }, {threshold:0.12});
-    document.querySelectorAll('.fade-up').forEach(el=>{
-      el.style.opacity=0;
-      observer.observe(el);
-      // trigger CSS animation (we used animation above)
-      el.classList.add('fade-up');
-    });
 
-    // Optional: make floating chat button jump a bit on load
-    window.addEventListener('load', ()=> {
-      const chat = document.querySelector('.float-btn.chat');
-      if(chat){
-        chat.animate([{transform:'translateY(0)'},{transform:'translateY(-6px)'},{transform:'translateY(0)'}],{duration:1400,iterations:2});
-      }
+    // pick panel sections
+    document.querySelectorAll('.panel, .portfolio, .hero, .service-card, .card').forEach(el=>{
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(12px)';
+      el.style.transition = 'opacity .6s ease, transform .6s ease';
+      observer.observe(el);
     });
   </script>
 </body>
