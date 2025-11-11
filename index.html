@@ -18,20 +18,28 @@
       padding: 40px 20px;
     }
 
-    header h1 {
+    h1 {
       font-size: 2.5em;
       margin-bottom: 10px;
     }
 
-    header p {
+    p {
       font-size: 1.2em;
     }
 
     section {
       padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       margin: 20px;
       border-radius: 10px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .services div {
@@ -42,37 +50,30 @@
     .button {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 25px;
-      background: #25d366;
+      padding: 10px 20px;
+      background: orange;
       color: white;
       text-decoration: none;
-      font-weight: bold;
       border-radius: 8px;
-      transition: 0.3s;
+      font-weight: bold;
+      transition: background 0.3s;
     }
 
     .button:hover {
-      background: #20b457;
+      background: #ffb347;
     }
 
     footer {
       margin-top: 30px;
-      padding: 15px;
+      padding: 10px;
       font-size: 0.9em;
       background: #031029;
-    }
-
-    img {
-      width: 160px;
-      border-radius: 12px;
-      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <!-- Upload your logo later as 'fexto-logo.png' -->
-    <!-- <img src="fexto-logo.png" alt="Fexto Logo"> -->
     <h1>Fexto Graphics</h1>
     <p>Creative posters that speak for you</p>
   </header>
@@ -94,11 +95,27 @@
   <section class="contact">
     <h2>Contact Us</h2>
     <p>Reach us on WhatsApp for your next design project.</p>
-    <a href="https://wa.me/254734208783" class="button" target="_blank">💬 WhatsApp Us</a>
+    <a href="https://wa.me/254734208783" class="button" target="_blank">WhatsApp Us</a>
   </section>
 
   <footer>
     © 2025 Fexto Graphics. All Rights Reserved.
   </footer>
+
+  <script>
+    // Fade-in + slide-up on scroll
+    const sections = document.querySelectorAll("section");
+    const showOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top < triggerBottom) {
+          sec.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", showOnScroll);
+    showOnScroll();
+  </script>
 </body>
 </html>
