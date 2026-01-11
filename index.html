@@ -24,10 +24,8 @@
       line-height:1.46;
     }
 
-    /* page container */
     .wrap{max-width:1000px;margin:20px auto;padding:18px}
 
-    /* header */
     .header {
       display:flex;align-items:center;gap:14px;
       padding:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
@@ -41,7 +39,6 @@
     nav a {color:var(--white);text-decoration:none;font-weight:600;padding:6px 8px;border-radius:8px}
     nav a:hover{background:rgba(255,255,255,0.03)}
 
-    /* hero */
     .hero{
       margin-top:18px;padding:36px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       box-shadow:var(--card-shadow);text-align:center;
@@ -55,33 +52,29 @@
     .btn {display:inline-block;background:var(--accent);color:#07122a;padding:10px 18px;border-radius:12px;font-weight:800;text-decoration:none;box-shadow:0 8px 22px rgba(246,161,27,0.18)}
     .btn:hover{transform:translateY(-4px)}
 
-    /* panels */
     .panel{margin-top:20px;padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));box-shadow:var(--soft-shadow)}
     .panel h2{font-size:1.4rem;margin-bottom:10px;color:var(--white)}
     .panel p{color:var(--muted)}
 
-    /* services grid */
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:12px}
     .service{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.04));box-shadow:0 6px 18px rgba(3,11,34,0.25);text-align:center}
     .service h3{margin-bottom:8px}
 
-    /* portfolio */
+    /* updated portfolio */
     .portfolio{margin-top:18px;border-radius:12px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.005));box-shadow:var(--soft-shadow)}
     .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
-    .card{background:var(--white);color:#07213a;border-radius:12px;padding:14px;box-shadow:0 8px 20px rgba(3,9,34,0.08);text-align:center}
+    .card{background:var(--white);color:#07213a;border-radius:12px;padding:14px;box-shadow:0 8px 20px rgba(3,9,34,0.08);text-align:center;transition:transform 0.3s ease}
+    .card:hover{transform:translateY(-6px)}
     .thumb{height:160px;border-radius:10px;overflow:hidden;background:#e9eef6;display:flex;align-items:center;justify-content:center}
     .thumb img{width:100%;height:100%;object-fit:cover;display:block}
     .card h4{margin-top:10px;margin-bottom:6px}
     .see-more{display:inline-block;margin-top:14px;background:var(--accent);color:#07122a;padding:10px 16px;border-radius:12px;text-decoration:none;font-weight:700}
 
-    /* contact CTA */
     .contact-cta{margin-top:18px;padding:20px;border-radius:12px;background:linear-gradient(180deg,#042042,#082b4f);text-align:center;box-shadow:var(--soft-shadow)}
     .cta-btn{display:inline-block;background:var(--accent);color:#07122a;padding:10px 16px;border-radius:12px;font-weight:800;text-decoration:none}
 
-    /* footer */
     footer{margin-top:22px;text-align:center;color:var(--muted);font-size:.95rem;padding:20px 0}
 
-    /* floating social buttons bottom-right */
     .floating {position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:12px;z-index:220}
     .float-btn{width:64px;height:64px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;text-decoration:none;box-shadow:0 10px 26px rgba(3,9,34,0.35);transition:transform .18s ease}
     .float-btn:hover{transform:translateY(-6px)}
@@ -89,7 +82,6 @@
     .yt{background:#ff0000}
     .wa{background:#25D366;color:#05240f}
 
-    /* responsive tweaks */
     @media(max-width:700px){
       .hero h1{font-size:1.6rem}
       .hero-img{width:120px;height:120px}
@@ -97,167 +89,150 @@
       .logo{width:60px;height:60px}
     }
 
-    /* fade-in basic animation */
     .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
     .reveal.visible{opacity:1;transform:none}
   </style>
 </head>
 <body>
 
-  <div class="wrap">
-    <!-- header -->
-    <header class="header" role="banner">
-      <div class="logo" aria-hidden="true">
-        <!-- rename your uploaded logo file to logo.png OR change this src to your uploaded filename -->
-        <img src="logo.png" alt="Fexto Logo" />
+<div class="wrap">
+  <!-- header -->
+  <header class="header" role="banner">
+    <div class="logo" aria-hidden="true">
+      <img src="logo.png" alt="Fexto Logo" />
+    </div>
+    <div class="brand">Fexto Graphics</div>
+    <nav class="nav" role="navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- hero -->
+  <section id="home" class="hero reveal" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div class="hero-img" aria-hidden="true">
+        <img src="hero.png" alt="Fexto Banner">
+      </div>
+      <h1 id="hero-title">Creative posters that speak for you</h1>
+      <p class="lead">Professional poster design, branding, social graphics and promotional art — tailored to your needs.</p>
+      <a class="btn" href="#portfolio">View Portfolio</a>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section id="about" class="panel reveal" aria-labelledby="about-title">
+    <h2 id="about-title">About Us</h2>
+    <p>We create high-quality posters and digital visuals for events, campaigns, musicians and small businesses. Fast turnaround and professional results.</p>
+  </section>
+
+  <!-- services -->
+  <section id="services" class="panel reveal" aria-labelledby="services-title">
+    <h2 id="services-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service reveal">
+        <h3>Music Posters</h3>
+        <p>Bold, memorable posters for concerts and DJs.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Political Posters</h3>
+        <p>Clear messaging and strong visuals for campaigns.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Event & Party Posters</h3>
+        <p>Vibrant designs that create buzz and attendance.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Business Adverts</h3>
+        <p>Ads and flyers that help convert customers.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Social Media Graphics</h3>
+        <p>Optimized visuals for Instagram, Facebook and TikTok.</p>
+      </div>
+      <div class="service reveal">
+        <h3>Custom Requests</h3>
+        <p>Have an idea? We’ll design it exactly how you want.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- portfolio -->
+  <section id="portfolio" class="portfolio reveal" aria-labelledby="portfolio-title">
+    <h2 id="portfolio-title">Our Portfolio</h2>
+    <p style="color:var(--muted)">Check out some of our recent creative work.</p>
+
+    <div class="portfolio-grid">
+      <div class="card reveal">
+        <div class="thumb">
+          <img src="https://raw.githubusercontent.com/fbett3393-commits/Fextographics/main/file_00000000a50471f5ace692091241108a.png" alt="Poster Design 1">
+        </div>
+        <h4>Poster Design</h4>
+        <p>Creative poster for events and promotions.</p>
       </div>
 
-      <div class="brand">Fexto Graphics</div>
-
-      <nav class="nav" role="navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <!-- hero -->
-    <section id="home" class="hero reveal" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <div class="hero-img" aria-hidden="true">
-          <!-- rename your uploaded hero/banner to hero.png OR change this src -->
-          <img src="hero.png" alt="Fexto Banner">
+      <div class="card reveal">
+        <div class="thumb">
+          <img src="https://raw.githubusercontent.com/fbett3393-commits/Fextographics/main/file_000000005900722f90d4b28a0eb0a29c.png" alt="Poster Design 2">
         </div>
-        <h1 id="hero-title">Creative posters that speak for you</h1>
-        <p class="lead">Professional poster design, branding, social graphics and promotional art — tailored to your needs.</p>
-        <a class="btn" href="#portfolio">View Portfolio</a>
+        <h4>Logo & Branding</h4>
+        <p>Clean logos and brand kits for businesses.</p>
       </div>
-    </section>
+    </div>
 
-    <!-- about -->
-    <section id="about" class="panel reveal" aria-labelledby="about-title">
-      <h2 id="about-title">About Us</h2>
-      <p>We create high-quality posters and digital visuals for events, campaigns, musicians and small businesses. Fast turnaround and professional results.</p>
-    </section>
+    <a class="see-more" href="#contact">See More Projects</a>
+  </section>
 
-    <!-- services -->
-    <section id="services" class="panel reveal" aria-labelledby="services-title">
-      <h2 id="services-title">Our Services</h2>
-      <div class="services-grid">
-        <div class="service reveal">
-          <h3>Music Posters</h3>
-          <p>Bold, memorable posters for concerts and DJs.</p>
-        </div>
-        <div class="service reveal">
-          <h3>Political Posters</h3>
-          <p>Clear messaging and strong visuals for campaigns.</p>
-        </div>
-        <div class="service reveal">
-          <h3>Event & Party Posters</h3>
-          <p>Vibrant designs that create buzz and attendance.</p>
-        </div>
-        <div class="service reveal">
-          <h3>Business Adverts</h3>
-          <p>Ads and flyers that help convert customers.</p>
-        </div>
-        <div class="service reveal">
-          <h3>Social Media Graphics</h3>
-          <p>Optimized visuals for Instagram, Facebook and TikTok.</p>
-        </div>
-        <div class="service reveal">
-          <h3>Custom Requests</h3>
-          <p>Have an idea? We’ll design it exactly how you want.</p>
-        </div>
-      </div>
-    </section>
+  <!-- contact CTA -->
+  <section id="contact" class="contact-cta reveal" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Us</h2>
+    <p>Ready to start? Message us on WhatsApp and we’ll get right back to you.</p>
+    <a class="cta-btn" href="https://wa.me/254734208783" target="_blank" rel="noopener">WhatsApp Us</a>
+  </section>
 
-    <!-- portfolio -->
-    <section id="portfolio" class="portfolio reveal" aria-labelledby="portfolio-title">
-      <h2 id="portfolio-title">Our Portfolio</h2>
-      <p style="color:var(--muted)">Sample work — replace the images with your own when ready.</p>
+  <footer>
+    © 2025 Fexto Graphics — Designed by Fexto
+  </footer>
+</div>
 
-      <div class="portfolio-grid">
-        <div class="card reveal">
-          <div class="thumb">
-            <!-- rename your poster image to poster.png OR update this src to your exact filename -->
-            <img src="poster.png" alt="Poster design">
-          </div>
-          <h4>Poster Design</h4>
-          <p>Creative poster for events and promotions.</p>
-        </div>
+<!-- floating social buttons -->
+<div class="floating" aria-hidden="false">
+  <a class="float-btn wa" href="https://wa.me/254734208783" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+  <a class="float-btn yt" href="https://youtube.com/@fexto-l5q?si=DxvvaAIusVjbfNdE" target="_blank" rel="noopener" title="YouTube">▶</a>
+  <a class="float-btn fb" href="https://www.fb.com/l/6lp1kJRRR" target="_blank" rel="noopener" title="Facebook">f</a>
+</div>
 
-        <div class="card reveal">
-          <div class="thumb">
-            <img src="poster2.png" alt="Design 2" onerror="this.src='poster.png'">
-          </div>
-          <h4>Logo & Branding</h4>
-          <p>Clean logos and brand kits for businesses.</p>
-        </div>
-
-        <div class="card reveal">
-          <div class="thumb">
-            <img src="poster3.png" alt="Design 3" onerror="this.src='poster.png'">
-          </div>
-          <h4>Social Media Graphics</h4>
-          <p>Engaging social posts and adverts.</p>
-        </div>
-      </div>
-
-      <a class="see-more" href="#contact">See More Projects</a>
-    </section>
-
-    <!-- contact CTA -->
-    <section id="contact" class="contact-cta reveal" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Us</h2>
-      <p>Ready to start? Message us on WhatsApp and we’ll get right back to you.</p>
-      <a class="cta-btn" href="https://wa.me/254734208783" target="_blank" rel="noopener">WhatsApp Us</a>
-    </section>
-
-    <footer>
-      © 2025 Fexto Graphics — Designed by Fexto
-    </footer>
-  </div>
-
-  <!-- floating social buttons (bottom-right) -->
-  <div class="floating" aria-hidden="false">
-    <a class="float-btn wa" href="https://wa.me/254734208783" target="_blank" rel="noopener" title="WhatsApp">💬</a>
-    <a class="float-btn yt" href="https://youtube.com/@fexto-l5q?si=DxvvaAIusVjbfNdE" target="_blank" rel="noopener" title="YouTube">▶</a>
-    <a class="float-btn fb" href="https://www.fb.com/l/6lp1kJRRR" target="_blank" rel="noopener" title="Facebook">f</a>
-  </div>
-
-  <script>
-    // smooth internal scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const href = a.getAttribute('href');
-        if(href.length>1){
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-      });
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const href = a.getAttribute('href');
+      if(href.length>1){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+      }
     });
+  });
 
-    // reveal-on-scroll simple
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {threshold: 0.15});
-
-    document.querySelectorAll('.reveal').forEach(el=>{
-      obs.observe(el);
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
     });
+  }, {threshold: 0.15});
 
-    // add 'visible' class to start CSS transitions (using JS to trigger)
-    document.addEventListener('DOMContentLoaded', ()=> {
-      document.querySelectorAll('.reveal').forEach((el,i)=>{
-        setTimeout(()=> el.classList.add('visible'), 120 * i);
-      });
+  document.querySelectorAll('.reveal').forEach(el=>{
+    obs.observe(el);
+  });
+
+  document.addEventListener('DOMContentLoaded', ()=> {
+    document.querySelectorAll('.reveal').forEach((el,i)=>{
+      setTimeout(()=> el.classList.add('visible'), 120 * i);
     });
-  </script>
+  });
+</script>
 </body>
-      </html>
+  </html>
