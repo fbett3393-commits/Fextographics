@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fextoh Graphics | Creative Designs, Lasting Impressions</title>
+<title>Fextoh Graphics | Design • Create • Innovate</title>
 
 <link rel="icon" href="file_000000006d3872438ebefacc1d63edff.png">
 
@@ -13,7 +13,10 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial, sans-serif;
+}
+
+html{
 scroll-behavior:smooth;
 }
 
@@ -23,18 +26,19 @@ color:white;
 }
 
 header{
+position:sticky;
+top:0;
+background:#000814;
+padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
-background:#000814;
-position:sticky;
-top:0;
 z-index:1000;
+border-bottom:1px solid #0a2540;
 }
 
 .logo img{
-height:80px;
+height:70px;
 }
 
 nav a{
@@ -45,7 +49,7 @@ font-weight:bold;
 }
 
 nav a:hover{
-color:#00C2FF;
+color:#00c2ff;
 }
 
 .hero{
@@ -54,7 +58,7 @@ justify-content:space-between;
 align-items:center;
 padding:80px 8%;
 min-height:90vh;
-background:linear-gradient(to right,#08101f,#0F172A);
+background:linear-gradient(135deg,#08101f,#0f172a);
 }
 
 .hero-text{
@@ -63,23 +67,24 @@ max-width:600px;
 
 .hero-text h1{
 font-size:60px;
+line-height:1.1;
 margin-bottom:20px;
 }
 
 .hero-text span{
-color:#00C2FF;
+color:#00c2ff;
 }
 
 .hero-text p{
 font-size:20px;
 line-height:1.8;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .btn{
 display:inline-block;
+background:#ff6b00;
 padding:15px 35px;
-background:#FF6B00;
 color:white;
 text-decoration:none;
 border-radius:8px;
@@ -87,22 +92,22 @@ font-weight:bold;
 }
 
 .btn:hover{
-background:#ff8a2b;
+background:#ff8533;
 }
 
 .hero-image img{
-max-width:500px;
 width:100%;
+max-width:500px;
 }
 
 section{
 padding:80px 8%;
 }
 
-.section-title{
+.title{
 text-align:center;
-margin-bottom:50px;
 font-size:40px;
+margin-bottom:50px;
 }
 
 .services{
@@ -112,16 +117,20 @@ gap:25px;
 }
 
 .card{
-background:#0F172A;
+background:#0f172a;
 padding:30px;
 border-radius:15px;
-text-align:center;
 border:1px solid #1e293b;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card h3{
+color:#00c2ff;
 margin-bottom:15px;
-color:#00C2FF;
 }
 
 .portfolio{
@@ -130,53 +139,67 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
-.project{
-background:#0F172A;
-padding:40px;
-border-radius:12px;
-text-align:center;
+.work{
+background:#0f172a;
+height:200px;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
 font-weight:bold;
+font-size:20px;
 }
 
-.about{
-background:#0F172A;
-border-radius:20px;
+.about-box{
+background:#0f172a;
 padding:50px;
+border-radius:20px;
 text-align:center;
 }
 
 .stats{
 display:flex;
 justify-content:center;
-gap:50px;
+gap:40px;
 margin-top:30px;
 flex-wrap:wrap;
 }
 
-.stat h2{
-color:#00C2FF;
+.stats h2{
+color:#00c2ff;
 }
 
-.contact{
+.cta{
+background:linear-gradient(135deg,#0066ff,#00c2ff);
 text-align:center;
+border-radius:20px;
+}
+
+.cta h2{
+font-size:40px;
+margin-bottom:15px;
 }
 
 .whatsapp{
-background:#25D366;
-padding:15px 35px;
 display:inline-block;
-margin-top:20px;
+background:#25d366;
 color:white;
 text-decoration:none;
+padding:15px 35px;
 border-radius:8px;
+margin-top:20px;
 font-weight:bold;
 }
 
 footer{
 background:#000814;
-padding:30px;
+padding:40px;
 text-align:center;
-margin-top:50px;
+}
+
+footer img{
+height:80px;
+margin-bottom:15px;
 }
 
 @media(max-width:900px){
@@ -194,21 +217,16 @@ nav{
 display:none;
 }
 
-.logo img{
-height:70px;
-}
-
 }
 
 </style>
 </head>
-
 <body>
 
 <header>
 
 <div class="logo">
-<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics Logo">
+<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics">
 </div>
 
 <nav>
@@ -231,59 +249,55 @@ Transforming Ideas Into
 </h1>
 
 <p>
-Welcome to Fextoh Graphics. We help businesses, organizations,
-and individuals create professional branding, eye-catching graphics,
-and creative marketing materials that leave a lasting impression.
+Fextoh Graphics helps businesses, organizations and individuals stand out through professional graphic design, branding, social media graphics, printing designs and creative visual solutions.
 </p>
 
 <a href="https://wa.me/254734208783" class="btn">
-Get a Free Quote
+Get A Free Quote
 </a>
 
 </div>
 
 <div class="hero-image">
-<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics">
+<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics Logo">
 </div>
 
 </section>
 
 <section id="services">
 
-<h2 class="section-title">
-Our Services
-</h2>
+<h2 class="title">Our Services</h2>
 
 <div class="services">
 
 <div class="card">
 <h3>Logo Design</h3>
-<p>Professional and memorable logos that represent your brand perfectly.</p>
+<p>Professional logos that make your brand memorable and trusted.</p>
 </div>
 
 <div class="card">
 <h3>Brand Identity</h3>
-<p>Complete branding solutions that help your business stand out.</p>
+<p>Complete branding packages for businesses and organizations.</p>
 </div>
 
 <div class="card">
 <h3>Social Media Graphics</h3>
-<p>Creative posts and adverts that attract customers online.</p>
+<p>Modern designs that increase engagement and attract customers.</p>
 </div>
 
 <div class="card">
-<h3>Flyers & Posters</h3>
-<p>Professional promotional materials for events and businesses.</p>
+<h3>Poster & Flyer Design</h3>
+<p>Creative promotional materials that get attention quickly.</p>
 </div>
 
 <div class="card">
 <h3>Business Cards</h3>
-<p>Modern business card designs that create strong first impressions.</p>
+<p>Professional business cards that create strong first impressions.</p>
 </div>
 
 <div class="card">
 <h3>Printing Design</h3>
-<p>Designs optimized for banners, brochures and branded materials.</p>
+<p>Banner, brochure and print-ready artwork for all projects.</p>
 </div>
 
 </div>
@@ -292,18 +306,16 @@ Our Services
 
 <section id="portfolio">
 
-<h2 class="section-title">
-Our Portfolio
-</h2>
+<h2 class="title">Our Portfolio</h2>
 
 <div class="portfolio">
 
-<div class="project">Logo Projects</div>
-<div class="project">Business Branding</div>
-<div class="project">Poster Designs</div>
-<div class="project">Social Media Ads</div>
-<div class="project">Business Cards</div>
-<div class="project">Marketing Materials</div>
+<div class="work">Logo Designs</div>
+<div class="work">Branding Projects</div>
+<div class="work">Posters & Flyers</div>
+<div class="work">Social Media Ads</div>
+<div class="work">Business Cards</div>
+<div class="work">Marketing Materials</div>
 
 </div>
 
@@ -311,34 +323,29 @@ Our Portfolio
 
 <section id="about">
 
-<div class="about">
+<div class="about-box">
 
-<h2 class="section-title">
-About Fextoh Graphics
-</h2>
+<h2 class="title">About Fextoh Graphics</h2>
 
 <p>
-Fextoh Graphics is a creative design studio dedicated to helping
-businesses grow through professional branding and graphic design.
-Our mission is to transform ideas into powerful visual experiences
-that inspire confidence and attract customers.
+We are a creative design studio passionate about helping brands communicate effectively through professional visual content. Our goal is to transform ideas into impactful designs that help businesses grow and succeed.
 </p>
 
 <div class="stats">
 
-<div class="stat">
+<div>
 <h2>100+</h2>
 <p>Projects Completed</p>
 </div>
 
-<div class="stat">
+<div>
 <h2>80+</h2>
 <p>Happy Clients</p>
 </div>
 
-<div class="stat">
+<div>
 <h2>24/7</h2>
-<p>Customer Support</p>
+<p>Support</p>
 </div>
 
 </div>
@@ -347,49 +354,37 @@ that inspire confidence and attract customers.
 
 </section>
 
-<section id="contact" class="contact">
+<section class="cta" id="contact">
 
-<h2 class="section-title">
-Let's Build Your Brand Together
-</h2>
+<h2>Ready To Build Your Brand?</h2>
 
 <p>
-Need a logo, branding package, poster, social media design,
-or marketing materials? Contact Fextoh Graphics today.
+Let's create something amazing together. Contact Fextoh Graphics today.
 </p>
 
 <a href="https://wa.me/254734208783" class="whatsapp">
-Chat on WhatsApp: 0734208783
+WhatsApp 0734208783
 </a>
 
 </section>
 
 <footer>
 
-<img src="file_000000006d3872438ebefacc1d63edff.png"
-style="height:80px;">
+<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics">
 
 <h3>Fextoh Graphics</h3>
 
-<p>
-Creative Designs, Lasting Impressions
-</p>
+<p>Design • Create • Innovate</p>
 
 <br>
 
-<p>
-WhatsApp: 0734208783
-</p>
+<p>WhatsApp: 0734208783</p>
 
-<p>
-Kenya
-</p>
+<p>Kenya</p>
 
 <br>
 
-<p>
-© 2026 Fextoh Graphics. All Rights Reserved.
-</p>
+<p>© 2026 Fextoh Graphics. All Rights Reserved.</p>
 
 </footer>
 
