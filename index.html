@@ -3,189 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fexto Graphics</title>
+<title>Fextoh Graphics</title>
 
 <style>
-:root{
-  --bg:#071b33;
-  --card:#0d2a4d;
-  --accent:#ffb400;
-  --text:#ffffff;
-  --muted:#c9d4e3;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:linear-gradient(180deg,#06142a,#0a2e52);
-  color:var(--text);
+    line-height:1.6;
+    color:#333;
 }
 
 header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 20px;
-  background:#071b33;
-  position:sticky;
-  top:0;
+    background:#0F172A;
+    color:white;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-header h1{
-  font-size:22px;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#FF6B00;
 }
 
 nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:15px;
-  font-weight:bold;
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
 }
 
 .hero{
-  text-align:center;
-  padding:70px 20px;
+    background:linear-gradient(rgba(15,23,42,.85),rgba(15,23,42,.85)),
+    url('hero.jpg');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:120px 20px;
 }
 
-.hero h2{
-  font-size:32px;
-  margin-bottom:10px;
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
 }
 
 .hero p{
-  color:var(--muted);
+    max-width:700px;
+    margin:auto;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#FF6B00;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
 }
 
 section{
-  max-width:1000px;
-  margin:30px auto;
-  padding:20px;
+    padding:70px 8%;
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0F172A;
 }
 
-.product{
-  background:var(--card);
-  padding:25px;
-  border-radius:12px;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.3);
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
-.product h3{
-  margin-bottom:10px;
+.card{
+    background:#f8f8f8;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
 }
 
-.product p{
-  color:var(--muted);
-  font-size:14px;
+.about{
+    background:#f4f6f9;
+}
+
+.contact{
+    background:#0F172A;
+    color:white;
+    text-align:center;
 }
 
 footer{
-  text-align:center;
-  padding:25px;
-  color:var(--muted);
-}
-
-/* Floating buttons */
-.whatsapp, .facebook{
-  position:fixed;
-  right:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  text-decoration:none;
-  color:#fff;
-  box-shadow:0 5px 15px rgba(0,0,0,.4);
-}
-
-.whatsapp{
-  bottom:20px;
-  background:#25D366;
-}
-
-.facebook{
-  bottom:90px;
-  background:#1877f2;
+    background:#08101f;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Fexto Graphics</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="logo">Fextoh Graphics</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Portfolio</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</nav>
 </header>
 
-<div class="hero" id="home">
-  <h2>Creative Designs That Speak for You</h2>
-  <p>Posters • Logos • Social Media • Business Ads • Websites</p>
-</div>
+<section class="hero">
+<h1>Transforming Ideas into Powerful Visual Brands</h1>
 
-<section id="products">
-  <h2 style="text-align:center;margin-bottom:25px;">Our Products</h2>
+<p>
+At Fextoh Graphics, we create professional designs that help businesses,
+organizations, and individuals stand out. From logos and branding to
+social media graphics and print materials, we bring your vision to life
+with creativity and excellence.
+</p>
 
-  <div class="products">
-    <div class="product">
-      <h3>Poster Designs</h3>
-      <p>Professional and eye-catching posters for any purpose.</p>
-    </div>
-
-    <div class="product">
-      <h3>Logo Designs</h3>
-      <p>Clean and memorable logos for strong branding.</p>
-    </div>
-
-    <div class="product">
-      <h3>Social Media Graphics</h3>
-      <p>Creative posts that boost engagement and visibility.</p>
-    </div>
-
-    <div class="product">
-      <h3>Business Adverts</h3>
-      <p>Promotional designs that attract customers.</p>
-    </div>
-
-    <div class="product">
-      <h3>Website Designs</h3>
-      <p>Modern and responsive website designs.</p>
-    </div>
-
-    <div class="product">
-      <h3>Custom Designs</h3>
-      <p>Any design idea tailored exactly to your needs.</p>
-    </div>
-  </div>
+<a href="#" class="btn">Get a Free Quote</a>
 </section>
 
-<section id="contact" style="text-align:center;">
-  <h2>Contact Us</h2>
-  <p style="margin-top:10px;color:var(--muted);">
-    Let’s work together. Message us on WhatsApp or Facebook.
-  </p>
+<section>
+<h2 class="section-title">Our Services</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Logo Design</h3>
+<p>
+Unique and memorable logos that represent your brand professionally.
+</p>
+</div>
+
+<div class="card">
+<h3>Brand Identity</h3>
+<p>
+Complete branding solutions including colors, typography, and visual style.
+</p>
+</div>
+
+<div class="card">
+<h3>Social Media Graphics</h3>
+<p>
+Eye-catching posts and promotional graphics that engage your audience.
+</p>
+</div>
+
+<div class="card">
+<h3>Print Design</h3>
+<p>
+Flyers, brochures, banners, posters, and business cards designed to impress.
+</p>
+</div>
+
+</div>
+</section>
+
+<section class="about">
+<h2 class="section-title">About Fextoh Graphics</h2>
+
+<p style="max-width:900px;margin:auto;text-align:center;">
+Fextoh Graphics is a creative design studio dedicated to helping brands
+communicate effectively through high-quality visual content. We believe
+great design is more than appearance—it is a powerful tool that builds
+trust, attracts customers, and drives business growth. Our goal is to
+deliver creative solutions that leave a lasting impression.
+</p>
+</section>
+
+<section>
+<h2 class="section-title">Why Choose Us</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Creative Excellence</h3>
+<p>
+Fresh and innovative designs tailored to your unique needs.
+</p>
+</div>
+
+<div class="card">
+<h3>Professional Quality</h3>
+<p>
+Attention to detail and high standards in every project.
+</p>
+</div>
+
+<div class="card">
+<h3>Customer Focus</h3>
+<p>
+We work closely with clients to ensure complete satisfaction.
+</p>
+</div>
+
+<div class="card">
+<h3>Fast Delivery</h3>
+<p>
+Reliable turnaround times without compromising quality.
+</p>
+</div>
+
+</div>
+</section>
+
+<section class="contact">
+<h2>Let's Build Your Brand Together</h2>
+
+<p>
+Ready to take your business to the next level with professional design?
+Contact Fextoh Graphics today and let's create something amazing.
+</p>
+
+<br>
+
+<p>
+📞 Phone: Your Number<br>
+📧 Email: your@email.com<br>
+📍 Kenya
+</p>
+
+<a href="#" class="btn">Contact Us</a>
 </section>
 
 <footer>
-  © 2025 Fexto Graphics — All Rights Reserved
+© 2026 Fextoh Graphics. All Rights Reserved.
 </footer>
 
-<!-- Floating Buttons -->
-<a class="whatsapp" href="https://wa.me/254734208783" target="_blank">💬</a>
-<a class="facebook" href="https://www.fb.com/l/6lp1kJRRR" target="_blank">f</a>
-
 </body>
-                                                               </html>
+  </html>
