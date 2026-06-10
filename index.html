@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fextoh Graphics | Design • Create • Innovate</title>
+
+<title>Fextoh Graphics | Creative Designs, Lasting Impressions</title>
 
 <link rel="icon" href="file_000000006d3872438ebefacc1d63edff.png">
 
@@ -28,24 +29,29 @@ color:white;
 header{
 position:sticky;
 top:0;
-background:#000814;
-padding:15px 8%;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:15px 8%;
 z-index:1000;
-border-bottom:1px solid #0a2540;
 }
 
 .logo img{
-height:70px;
+height:75px;
+}
+
+nav{
+display:flex;
+gap:20px;
 }
 
 nav a{
 color:white;
 text-decoration:none;
-margin-left:20px;
 font-weight:bold;
+transition:.3s;
 }
 
 nav a:hover{
@@ -53,51 +59,55 @@ color:#00c2ff;
 }
 
 .hero{
+min-height:100vh;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:80px 8%;
-min-height:90vh;
-background:linear-gradient(135deg,#08101f,#0f172a);
+background:
+linear-gradient(-45deg,#08101f,#0f172a,#003566,#08101f);
+background-size:400% 400%;
+animation:bgmove 12s ease infinite;
+}
+
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
 .hero-text{
 max-width:600px;
 }
 
-.hero-text h1{
+.hero h1{
 font-size:60px;
-line-height:1.1;
 margin-bottom:20px;
 }
 
-.hero-text span{
+.hero span{
 color:#00c2ff;
 }
 
-.hero-text p{
+.hero p{
 font-size:20px;
 line-height:1.8;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .btn{
 display:inline-block;
-background:#ff6b00;
 padding:15px 35px;
+background:#ff6b00;
 color:white;
 text-decoration:none;
 border-radius:8px;
 font-weight:bold;
 }
 
-.btn:hover{
-background:#ff8533;
-}
-
 .hero-image img{
 width:100%;
-max-width:500px;
+max-width:450px;
 }
 
 section{
@@ -117,15 +127,16 @@ gap:25px;
 }
 
 .card{
-background:#0f172a;
+background:rgba(255,255,255,.05);
 padding:30px;
-border-radius:15px;
-border:1px solid #1e293b;
+border-radius:20px;
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.1);
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-10px);
 }
 
 .card h3{
@@ -140,17 +151,17 @@ gap:20px;
 }
 
 .work{
+height:220px;
 background:#0f172a;
-height:200px;
 border-radius:15px;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:bold;
-font-size:20px;
+border:1px solid #1e293b;
 }
 
-.about-box{
+.about{
 background:#0f172a;
 padding:50px;
 border-radius:20px;
@@ -161,33 +172,53 @@ text-align:center;
 display:flex;
 justify-content:center;
 gap:40px;
-margin-top:30px;
 flex-wrap:wrap;
+margin-top:30px;
 }
 
-.stats h2{
+.stat h2{
+font-size:40px;
 color:#00c2ff;
 }
 
-.cta{
-background:linear-gradient(135deg,#0066ff,#00c2ff);
+.why{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.reason{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+}
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+
+.review{
+background:#0f172a;
+padding:25px;
+border-radius:15px;
+}
+
+.contact{
 text-align:center;
+background:linear-gradient(135deg,#0066ff,#00c2ff);
 border-radius:20px;
 }
 
-.cta h2{
-font-size:40px;
-margin-bottom:15px;
-}
-
-.whatsapp{
+.whatsapp-btn{
 display:inline-block;
+margin-top:20px;
+padding:15px 35px;
 background:#25d366;
 color:white;
 text-decoration:none;
-padding:15px 35px;
 border-radius:8px;
-margin-top:20px;
 font-weight:bold;
 }
 
@@ -202,6 +233,19 @@ height:80px;
 margin-bottom:15px;
 }
 
+.floating-whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:999;
+}
+
 @media(max-width:900px){
 
 .hero{
@@ -209,18 +253,20 @@ flex-direction:column;
 text-align:center;
 }
 
-.hero-text h1{
+.hero h1{
 font-size:42px;
 }
 
 nav{
-display:none;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 }
 
 </style>
 </head>
+
 <body>
 
 <header>
@@ -231,9 +277,9 @@ display:none;
 
 <nav>
 <a href="#home">Home</a>
+<a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#portfolio">Portfolio</a>
-<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -249,7 +295,9 @@ Transforming Ideas Into
 </h1>
 
 <p>
-Fextoh Graphics helps businesses, organizations and individuals stand out through professional graphic design, branding, social media graphics, printing designs and creative visual solutions.
+Fextoh Graphics creates professional logos, branding solutions,
+social media graphics, posters, flyers, and marketing materials
+that help businesses grow and stand out.
 </p>
 
 <a href="https://wa.me/254734208783" class="btn">
@@ -259,7 +307,7 @@ Get A Free Quote
 </div>
 
 <div class="hero-image">
-<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics Logo">
+<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Logo">
 </div>
 
 </section>
@@ -271,33 +319,33 @@ Get A Free Quote
 <div class="services">
 
 <div class="card">
-<h3>Logo Design</h3>
-<p>Professional logos that make your brand memorable and trusted.</p>
+<h3>🎨 Logo Design</h3>
+<p>Unique logos that build a memorable brand identity.</p>
 </div>
 
 <div class="card">
-<h3>Brand Identity</h3>
-<p>Complete branding packages for businesses and organizations.</p>
+<h3>📱 Social Media Graphics</h3>
+<p>Creative content that attracts and engages customers.</p>
 </div>
 
 <div class="card">
-<h3>Social Media Graphics</h3>
-<p>Modern designs that increase engagement and attract customers.</p>
+<h3>🖨️ Flyer & Poster Design</h3>
+<p>Professional promotional materials for marketing.</p>
 </div>
 
 <div class="card">
-<h3>Poster & Flyer Design</h3>
-<p>Creative promotional materials that get attention quickly.</p>
+<h3>💼 Business Cards</h3>
+<p>Modern and professional card designs.</p>
 </div>
 
 <div class="card">
-<h3>Business Cards</h3>
-<p>Professional business cards that create strong first impressions.</p>
+<h3>🏢 Branding</h3>
+<p>Complete visual identity solutions for businesses.</p>
 </div>
 
 <div class="card">
-<h3>Printing Design</h3>
-<p>Banner, brochure and print-ready artwork for all projects.</p>
+<h3>📦 Packaging Design</h3>
+<p>Creative packaging that enhances product appeal.</p>
 </div>
 
 </div>
@@ -306,16 +354,16 @@ Get A Free Quote
 
 <section id="portfolio">
 
-<h2 class="title">Our Portfolio</h2>
+<h2 class="title">Portfolio</h2>
 
 <div class="portfolio">
 
-<div class="work">Logo Designs</div>
+<div class="work">Logo Projects</div>
 <div class="work">Branding Projects</div>
+<div class="work">Social Media Designs</div>
 <div class="work">Posters & Flyers</div>
-<div class="work">Social Media Ads</div>
 <div class="work">Business Cards</div>
-<div class="work">Marketing Materials</div>
+<div class="work">Marketing Designs</div>
 
 </div>
 
@@ -323,27 +371,30 @@ Get A Free Quote
 
 <section id="about">
 
-<div class="about-box">
+<div class="about">
 
 <h2 class="title">About Fextoh Graphics</h2>
 
 <p>
-We are a creative design studio passionate about helping brands communicate effectively through professional visual content. Our goal is to transform ideas into impactful designs that help businesses grow and succeed.
+We are a creative graphic design studio committed to helping businesses
+communicate professionally through high-quality visual content.
+Our mission is to transform ideas into impactful designs that
+build trust, attract customers and grow brands.
 </p>
 
 <div class="stats">
 
-<div>
+<div class="stat">
 <h2>100+</h2>
 <p>Projects Completed</p>
 </div>
 
-<div>
+<div class="stat">
 <h2>80+</h2>
 <p>Happy Clients</p>
 </div>
 
-<div>
+<div class="stat">
 <h2>24/7</h2>
 <p>Support</p>
 </div>
@@ -354,15 +405,57 @@ We are a creative design studio passionate about helping brands communicate effe
 
 </section>
 
-<section class="cta" id="contact">
+<section>
 
-<h2>Ready To Build Your Brand?</h2>
+<h2 class="title">Why Choose Us</h2>
+
+<div class="why">
+
+<div class="reason">✔ Professional Quality</div>
+<div class="reason">✔ Creative Designs</div>
+<div class="reason">✔ Affordable Pricing</div>
+<div class="reason">✔ Fast Delivery</div>
+<div class="reason">✔ Customer Satisfaction</div>
+<div class="reason">✔ Reliable Support</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Client Reviews</h2>
+
+<div class="testimonials">
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+Professional work and excellent communication.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+Creative designs delivered on time.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐<br><br>
+Highly recommended for branding and logo design.
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2 class="title">Ready To Build Your Brand?</h2>
 
 <p>
-Let's create something amazing together. Contact Fextoh Graphics today.
+Let's work together and create designs that leave a lasting impression.
 </p>
 
-<a href="https://wa.me/254734208783" class="whatsapp">
+<a href="https://wa.me/254734208783" class="whatsapp-btn">
 WhatsApp 0734208783
 </a>
 
@@ -370,11 +463,11 @@ WhatsApp 0734208783
 
 <footer>
 
-<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Fextoh Graphics">
+<img src="file_000000006d3872438ebefacc1d63edff.png" alt="Logo">
 
 <h3>Fextoh Graphics</h3>
 
-<p>Design • Create • Innovate</p>
+<p>Creative Designs, Lasting Impressions</p>
 
 <br>
 
@@ -387,6 +480,10 @@ WhatsApp 0734208783
 <p>© 2026 Fextoh Graphics. All Rights Reserved.</p>
 
 </footer>
+
+<a href="https://wa.me/254734208783" class="floating-whatsapp">
+WhatsApp
+</a>
 
 </body>
     </html>
